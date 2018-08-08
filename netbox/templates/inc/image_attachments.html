@@ -10,8 +10,14 @@
             <tr{% if not attachment.size %} class="danger"{% endif %}>
                 <td>
                     <i class="fa fa-image"></i>
-                    <a href="{{ attachment.image.url }}" target="_blank">{{ attachment }}</a>
-                </td>
+                    <a  data-gallery="pictures"
+                        data-caption="{{ attachment }}"
+                        data-group="a"
+                        href="{{ attachment.image.url }}" class="image-attachement">
+                        {{ attachment }}
+                        <img src="{{ attachment.image.url }}" width=0 height=0 />
+                    </a>
+		</td>
                 <td>{{ attachment.size|filesizeformat }}</td>
                 <td>{{ attachment.created }}</td>
                 <td class="text-right">
